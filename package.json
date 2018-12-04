@@ -1,10 +1,12 @@
 {
   "name": "unist-util-visit-all-after",
   "version": "1.0.0",
-  "description": "Unist node visitor. Utility to visit nodes after another node.",
+  "description": "unist utility to visit nodes after another node.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc npm run tape"
+    "test": "nyc npm run tap",
+    "tap": "tap -Rspec test.js",
+    "report": "nyc report --reporter=text-lcov"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,7 @@
     "visit-after",
     "visit-all-after"
   ],
-  "author": "mrzmmr",
+  "author": "Paul Zimmer",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mrzmmr/unist-util-visit-all-after/issues"
@@ -27,12 +29,13 @@
   "homepage": "https://github.com/mrzmmr/unist-util-visit-all-after#readme",
   "dependencies": {
     "unist-util-find": "^1.0.1",
-    "unist-util-find-all-after": "^1.0.0",
     "unist-util-is": "^2.0.0",
     "unist-util-visit": "^1.1.1"
   },
   "devDependencies": {
-    "remark": "^6.2.0",
-    "tape": "^4.6.3"
+    "retext-english": "^3.0.2",
+    "retext-stringify": "^2.0.2",
+    "tap": "^12.1.0",
+    "unified": "^7.0.2"
   }
 }
