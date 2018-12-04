@@ -1,15 +1,6 @@
 # unist-util-visit-all-after
 
-
 > Unist node visitor. Utility to visit nodes after another node.
-
-## Table of Contents
-
-- [Install](#install)
-- [Usage](#usage)
-- [API](#api)
-- [Contribute](#contribute)
-- [License](#license)
 
 ## Install
 
@@ -19,17 +10,49 @@ npm install -S unist-util-visit-all-after
 
 ## Usage
 
+text.txt
+
 ```
+A whole lot of dogs, dogs, dogs.
 ```
 
-## API
+index.js
 
-## Contribute
+```js
+var vfile = require('to-vfile')
+var unified = require('unified')
+var english = require('retext-english')
+var stringify = require('retext-stringify')
+var after = require('unist-util-visit-all-after')
 
-PRs accepted.
+function cats () {
+    return function (tree) {
+        var start = {
+            type: 'TextNode',
+            value: 'of'
+        }
+        var test = 'TextNode'
+        after(tree, start, test, function (node) {
+            node.value = 'cats'
+        })
+    }
+}
 
-Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+unified()
+    .use(english)
+    .use(stringify)
+    .use(cats)
+    .process(vfile.readSync('text.txt'), function (error, file) {
+        console.log(String(file))
+    })
+```
+
+outputs,
+
+```
+A whole lot of cats, cats, cats.
+```
 
 ## License
 
-MIT © mrzmmr
+MIT © Paul Zimmer
