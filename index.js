@@ -16,12 +16,12 @@ function visitAllAfter (tree, node, test, visitor) {
   control = false
 
   visit(tree, test, function (nnode, index, parent) {
-    if (is(nnode, start)) {
-      control = true
-    }
-
     if (control) {
       visitor(nnode, index, parent)
+    }
+
+    if (is(nnode, start)) {
+      control = true
     }
   })
 
