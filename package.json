@@ -29,13 +29,11 @@
   "homepage": "https://github.com/mrzmmr/unist-util-visit-all-after#readme",
   "dependencies": {
     "unist-util-find": "^1.0.1",
-    "unist-util-is": "^2.0.0",
-    "unist-util-visit": "^1.1.1"
+    "unist-util-is": "^2.1.3",
+    "unist-util-visit": "^1.4.1"
   },
   "devDependencies": {
-    "retext-english": "^3.0.2",
-    "retext-stringify": "^2.0.2",
-    "tap": "^12.1.0",
-    "unified": "^7.0.2"
+    "tap": "^12.7.0",
+    "unified": "^7.1.0"
   }
 }
